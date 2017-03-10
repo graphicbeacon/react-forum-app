@@ -52,13 +52,13 @@ ForumDispatcher.register(function(action) {
     console.log(action);
 
     switch(action.actionType) {
-        case 'FORUM_ANSWER_ADDED': {
+        case ForumConstants.FORUM_ANSWER_ADDED: {
             console.log('Answer added!');
             ForumStore.addAnswer(action.newAnswer);
             break;
         }
 
-        case 'FORUM_ANSWER_MARKED_CORRECT': {
+        case ForumConstants.FORUM_ANSWER_MARKED_CORRECT: {
             console.log('Answer marked correct!');
             ForumStore.markAsCorrect(action.id);
         }

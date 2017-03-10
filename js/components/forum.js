@@ -17,8 +17,8 @@ var Forum = React.createClass({
     },
 
     render: function() {
-        //
-        console.log(this.state.allAnswers);
+        // 
+        // console.log(this.state.allAnswers);
 
         // createElement creates an element in its Virtual DOM
         // first param is the element selector
@@ -46,9 +46,6 @@ var Forum = React.createClass({
     },
 
     _onAddAnswer: function(answerText) {
-        ForumDispatcher.dispatch({
-            actionType: 'FORUM_ANSWER_ADDED',
-            newAnswer: answerText
-        });
+        ForumActions.addNewAnswer(answerText);
     }
 });

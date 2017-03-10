@@ -1,6 +1,5 @@
 var ForumHeader = React.createClass({
     render: function() {
-        console.log(this.props.allAnswers)
         // JavaScript generating the data structure
         return (
             <nav className="navbar navbar-default">
