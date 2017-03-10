@@ -28,12 +28,10 @@ var Forum = React.createClass({
         // createElement creates an element in its Virtual DOM
         // first param is the element selector
         // second pararm is an obj of atttributes
-        return React.createElement(
-            'div', 
-            null,
-            React.createElement(ForumHeader, null, { 
-                allAnswers: this.state.allAnswers // Created from getInitialState method
-            })
+        return (
+            <div>
+                <ForumHeader allAnswers={ this.state.allAnswers }></ForumHeader>
+            </div>
         );
     }
 });
