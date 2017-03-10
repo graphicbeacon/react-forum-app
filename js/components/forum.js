@@ -8,6 +8,14 @@ var Forum = React.createClass({
         }
     },
 
+    componentDidMount: function() { // component has finished mounting
+        ForumStore.addChangeListener(this._onChange);
+    },
+
+    componentWillUnmount: function() { // component is removed from document
+        ForumStore.removeListener(this._onChange);
+    },
+
     render: function() {
         //
         console.log(this.state.allAnswers);
@@ -29,6 +37,12 @@ var Forum = React.createClass({
                 </div>
             </div>
         );
+    },
+
+    _onChange: function() {
+        this.setState({
+            allAnswers: ForumStore.getAnswers()
+        })
     },
 
     _onAddAnswer: function(answerText) {
