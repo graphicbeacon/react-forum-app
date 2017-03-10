@@ -5,7 +5,7 @@ var ForumAnswers = React.createClass({
         var answers = [];
 
         for (var key in allAnswers) {
-            answers.push(<ForumAnswer key={key} id={key} answer={allAnswers[key]} />)
+            answers.push(<ForumAnswer key={key} id={key} answer={allAnswers[key]} onMarkCorrect={ this._onMarkCorrect }/>)
         }
 
         return (
@@ -13,5 +13,12 @@ var ForumAnswers = React.createClass({
                 { answers }
             </div>
         );
+    },
+
+    _onMarkCorrect: function(id) {
+        ForumDispatcher.dispatch({
+            actionType: 'FORUM_ANSWER_MARKED_CORRECT',
+            id: id
+        });
     }
 });
